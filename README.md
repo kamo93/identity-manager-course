@@ -10,6 +10,7 @@ dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
 dotnet new tool-manifest
+dotnet tool install --local dotnet-ef
 dotnet ef migrations add AddIdentityTables
 dotnet ef database udpdate
 dotnet new class -n 'ApplicationUser' -o 'Models'
@@ -17,6 +18,10 @@ dotnet ef migrations add Extend_user_identity_to_add_name_param
 dotnet ef database udpdate
 dotnet new class -n 'LoginViews' -o 'Models/Views'
 dotnet new class -n 'RegisterViews' -o 'Models/Views'
+dotnet tool install --local dotnet-aspnet-codegenerator
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet build // with out this build aspnet-codegenerator would not work
+dotnet aspnet-codegenerator view Register Empty -m RegisterViewModel -dc ApplicationDBContext -outDir Views/Account
 ```
 
 ### Links from course

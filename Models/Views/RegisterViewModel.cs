@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace IdentityManager;
+namespace IdentityManager.Models.Views;
 
-public class RegistrationModel
+public class RegisterViewModel
 {
   [Required]
   public string Name { get; set; }
